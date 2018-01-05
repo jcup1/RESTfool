@@ -30,5 +30,8 @@ class MainActivity : BaseActivityImpl<MainView, MainPresenterImpl>(), MainView {
         mainPresenter.detachView()
     }
 
+    override fun displayList() {
+
+    }
 
 }

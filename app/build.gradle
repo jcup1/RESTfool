@@ -68,4 +68,6 @@ dependencies {
 
     implementation 'com.hannesdorfmann.mosby3:viewstate:3.1.0' // MVP + ViewState support
 
+    implementation 'org.mockito:mockito-core:2.11.0'
+
 }

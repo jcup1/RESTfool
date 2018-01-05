@@ -8,4 +8,9 @@ import javax.inject.Inject
  * Created by jakub on 04.01.18.
  */
 @ActivityScope
-class MainPresenterImpl @Inject constructor() : BasePresenterImpl<MainView>()
+class MainPresenterImpl @Inject constructor() : BasePresenterImpl<MainView>() {
+
+    fun loadList(emptY_LIST: List<Any?>) {
+        view?.displayList()
+    }
+}
