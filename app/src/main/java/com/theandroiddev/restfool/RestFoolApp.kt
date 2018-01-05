@@ -1,18 +1,25 @@
 package com.theandroiddev.restfool
 
-import android.app.Application
 import com.squareup.leakcanary.LeakCanary
+import com.theandroiddev.restfool.DI.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 import timber.log.Timber
 
 /**
  * Created by jakub on 04.01.18.
  */
-open class RestFoolApp : Application() {
+class RestFoolApp : DaggerApplication() {
+
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> = DaggerAppComponent.builder().create(this)
+
 
     override fun onCreate() {
         super.onCreate()
 
-        Timber.plant()
+        if (BuildConfig.DEBUG) {
+            Timber.plant()
+        }
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
@@ -22,4 +29,6 @@ open class RestFoolApp : Application() {
         LeakCanary.install(this)
 
     }
+
+
 }
